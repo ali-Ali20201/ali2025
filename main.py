@@ -667,12 +667,12 @@ async def on_buy_flow(update: Update, context: ContextTypes.DEFAULT_TYPE):
         rows = []
         for i in range(0, len(prods), 2):
             p1 = prods[i]
-            button_text1 = f" {p1['name']} /-↔-/ {money(p1['price'])}" if p1['product_type'] == 'regular' else f" {p1['name']} /-↔-/ {money(p1['price'])} للواحدة"
+            button_text1 = f" {p1['name']} /-/ {money(p1['price'])}" if p1['product_type'] == 'regular' else f" {p1['name']} /-/ {money(p1['price'])} للواحدة"
             row = [InlineKeyboardButton(button_text1, callback_data=f"BUY_PROD:{p1['id']}")]
 
             if i + 1 < len(prods):
                 p2 = prods[i+1]
-                button_text2 = f" {p2['name']} /-↔-/ {money(p2['price'])}" if p2['product_type'] == 'regular' else f" {p2['name']} /-↔-/ {money(p2['price'])} للواحدة"
+                button_text2 = f" {p2['name']} /-/ {money(p2['price'])}" if p2['product_type'] == 'regular' else f" {p2['name']} /-/ {money(p2['price'])} للواحدة"
                 row.append(InlineKeyboardButton(button_text2, callback_data=f"BUY_PROD:{p2['id']}"))
             rows.append(row)
 
@@ -1926,4 +1926,5 @@ def main():
 
 
 if __name__ == '__main__':
+
     main()
